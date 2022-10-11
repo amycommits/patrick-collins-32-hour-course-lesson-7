@@ -9,10 +9,10 @@ module.exports = async ({ getNamedAccounts, deployments}) => {
 
   const chainId = network.config.chainId
   log({ chainId })
-  if (developmentChains.includes(chainId)) {
+  if (developmentChains.includes(network.name)) {
     log("running the mocks")
     await deploy("MockV3Aggregator", {
-      contract: "MockV3Aggregator", 
+      contract: "@chainlink/contracts/src/v0.6/tests/MockV3Aggregator.sol:MockV3Aggregator", 
       from: deployer,
       log: true,
       args: [DECIMALS, INITIAL_PRICE]

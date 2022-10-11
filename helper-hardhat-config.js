@@ -9,7 +9,7 @@ const networkConfig = {
   }
 }
 
-const developmentChains = [31337]
+const developmentChains = ['hardhat', 'localhost']
 
 const DECIMALS = '8'
 const INITIAL_PRICE = '200000000000'
