@@ -12,7 +12,8 @@ const verify = async function verifyContract(contractAddress, args) {
 
     console.error(message)
     
-  } 
+  }
+  console.log('VERIFIED!!!')
 }
 
 module.exports = { verify }

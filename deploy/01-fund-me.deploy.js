@@ -13,9 +13,11 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     const ethUsdAggregator = await deployments.get("MockV3Aggregator")
     ethUsdPriceFeedAddress = ethUsdAggregator.address
   } else {
-    ethUsdPriceFeedAddress = networkConfig[chainId].ethUsdPriceFeed
+    ethUsdPriceFeedAddress = networkConfig[chainId]["ethUsdPriceFeed"]
   }
   const ARGS = [ethUsdPriceFeedAddress]
+  log(`block confirmations ${network.config.blockConfirmations}`)
+  log(ethUsdPriceFeedAddress)
   const fundMe = await deploy("FundMe", {
     from: deployer,
     args: ARGS,
